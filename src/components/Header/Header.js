@@ -6,6 +6,8 @@ import {
   HeaderOption,
   HeaderSearch,
   Input,
+  OptionLineOne,
+  OptionLineTwo,
 } from "./Header.styled";
 
 const Header = ({ ...props }) => {
@@ -19,9 +21,18 @@ const Header = ({ ...props }) => {
         <Input type="text" />
       </HeaderSearch>
       <HeaderNav>
-        <HeaderOption></HeaderOption>
-        <HeaderOption></HeaderOption>
-        <HeaderOption></HeaderOption>
+        <HeaderOption>
+          <OptionLineOne>Hello Guest</OptionLineOne>
+          <OptionLineTwo>Sign In</OptionLineTwo>
+        </HeaderOption>
+        <HeaderOption>
+          <OptionLineOne>Returns</OptionLineOne>
+          <OptionLineTwo>& Orders</OptionLineTwo>
+        </HeaderOption>
+        <HeaderOption>
+          <OptionLineOne>Your</OptionLineOne>
+          <OptionLineTwo>Prime</OptionLineTwo>
+        </HeaderOption>
       </HeaderNav>
     </Container>
   );
