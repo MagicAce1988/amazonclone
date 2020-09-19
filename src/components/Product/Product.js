@@ -10,7 +10,9 @@ const Product = ({ ...props }) => {
           <small>$</small>
           <strong>19.99</strong>
           <Rating>
-            <p></p>
+            <p>🌟</p>
+            <p>🌟</p>
+            <p>🌟</p>
           </Rating>
         </Price>
       </Info>
