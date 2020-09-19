@@ -2,6 +2,7 @@ const palette = {
   primaries: {
     blackest: (alpha = 1) => `rgba(19, 25, 33, ${alpha})`, //#131921
     whitest: (alpha = 1) => `rgba(255, 255, 255, ${alpha})`, //#ffffff
+    main: (alpha = 1) => `rgba(205, 144, 66, ${alpha})`, //#cd9042
   },
   secondaries: {
     mocha: (alpha = 1) => `rgba(212, 203, 194, ${alpha})`, //#D4CBC2
@@ -36,7 +37,11 @@ const palette = {
 
 export default {
   colors: {
-    header: { background: palette.primaries.blackest() },
+    header: {
+      background: palette.primaries.blackest(),
+      searchIcon: palette.primaries.main(),
+      option: palette.primaries.whitest(),
+    },
   },
   // fonts: {
   //   primary: "Oswald",

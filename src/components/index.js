@@ -1,3 +1,4 @@
-import { default as Header } from "./Header/Header";
+import { default as Header } from "./Header";
+import { default as Product } from "./Product";
 
-export { Header };
+export { Header, Product };

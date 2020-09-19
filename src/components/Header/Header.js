@@ -1,13 +1,17 @@
 import React from "react";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import {
   Container,
+  HeaderBasketCount,
   HeaderLogo,
   HeaderNav,
   HeaderOption,
+  HeaderOptionBasket,
   HeaderSearch,
   Input,
   OptionLineOne,
   OptionLineTwo,
+  Search,
 } from "./Header.styled";
 
 const Header = ({ ...props }) => {
@@ -19,6 +23,7 @@ const Header = ({ ...props }) => {
       />
       <HeaderSearch>
         <Input type="text" />
+        <Search />
       </HeaderSearch>
       <HeaderNav>
         <HeaderOption>
@@ -33,6 +38,10 @@ const Header = ({ ...props }) => {
           <OptionLineOne>Your</OptionLineOne>
           <OptionLineTwo>Prime</OptionLineTwo>
         </HeaderOption>
+        <HeaderOptionBasket>
+          <ShoppingBasketIcon />
+          <HeaderBasketCount>0</HeaderBasketCount>
+        </HeaderOptionBasket>
       </HeaderNav>
     </Container>
   );
