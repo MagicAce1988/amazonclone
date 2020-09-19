@@ -1,21 +1,28 @@
 import React from "react";
-import { Container, Info, Price, Rating } from "./Product.styled";
+import {
+  AddToCart,
+  Container,
+  Info,
+  Price,
+  ProductImage,
+  Rating,
+} from "./Product.styled";
 
-const Product = ({ ...props }) => {
+const Product = ({ title, image, price, rating, ...props }) => {
   return (
     <Container {...props}>
       <Info>
-        <p>The lean startup</p>
+        <p>{title}</p>
         <Price>
           <small>$</small>
-          <strong>19.99</strong>
+          <strong>{price}</strong>
           <Rating>
-            <p>🌟</p>
-            <p>🌟</p>
-            <p>🌟</p>
+            <p>{`🌟`.repeat(rating)}</p>
           </Rating>
         </Price>
       </Info>
+      <ProductImage src={image} alt={title} />
+      <AddToCart>Add to Basket</AddToCart>
     </Container>
   );
 };

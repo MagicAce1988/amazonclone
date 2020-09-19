@@ -42,6 +42,13 @@ export default {
       searchIcon: palette.primaries.main(),
       option: palette.primaries.whitest(),
     },
+    product: {
+      bg: palette.primaries.whitest(),
+      button: {
+        bg: palette.primaries.main(),
+        text: palette.primaries.blackest(),
+      },
+    },
   },
   // fonts: {
   //   primary: "Oswald",
