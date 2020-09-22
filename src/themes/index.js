@@ -49,9 +49,6 @@ export default {
         text: palette.primaries.blackest(),
       },
     },
+    checkout: {},
   },
-  // fonts: {
-  //   primary: "Oswald",
-  //   secondary: "Montserrat",
-  // },
 };
