@@ -49,6 +49,9 @@ export default {
         text: palette.primaries.blackest(),
       },
     },
-    checkout: {},
+    checkout: {
+      bg: palette.primaries.whitest(),
+      titleLine: palette.primaries.blackest(0.1),
+    },
   },
 };

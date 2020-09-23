@@ -13,6 +13,7 @@ import {
   OptionLineTwo,
   Search,
 } from "./Header.styled";
+import { Link } from "react-router-dom";
 
 const Header = ({ ...props }) => {
   return (
@@ -38,10 +39,12 @@ const Header = ({ ...props }) => {
           <OptionLineOne>Your</OptionLineOne>
           <OptionLineTwo>Prime</OptionLineTwo>
         </HeaderOption>
-        <HeaderOptionBasket>
-          <ShoppingBasketIcon />
-          <HeaderBasketCount>0</HeaderBasketCount>
-        </HeaderOptionBasket>
+        <Link to="/checkout">
+          <HeaderOptionBasket>
+            <ShoppingBasketIcon />
+            <HeaderBasketCount>0</HeaderBasketCount>
+          </HeaderOptionBasket>
+        </Link>
       </HeaderNav>
     </Container>
   );

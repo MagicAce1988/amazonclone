@@ -14,14 +14,12 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <Header />
         <Switch>
           <Route path="/checkout">
-            <Header />
             <Checkout />
-            <h1>I am a checkout</h1>
           </Route>
           <Route path="/">
-            <Header />
             <Home />
           </Route>
         </Switch>
