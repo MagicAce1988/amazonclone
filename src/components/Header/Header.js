@@ -14,8 +14,10 @@ import {
   Search,
 } from "./Header.styled";
 import { Link } from "react-router-dom";
+import { useStateValue } from "../../StateProvider";
 
 const Header = ({ ...props }) => {
+  const [{ basket }] = useStateValue();
   return (
     <Container {...props}>
       <HeaderLogo
@@ -42,7 +44,7 @@ const Header = ({ ...props }) => {
         <Link to="/checkout">
           <HeaderOptionBasket>
             <ShoppingBasketIcon />
-            <HeaderBasketCount>0</HeaderBasketCount>
+            <HeaderBasketCount>{basket?.length}</HeaderBasketCount>
           </HeaderOptionBasket>
         </Link>
       </HeaderNav>
