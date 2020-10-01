@@ -5,12 +5,16 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "styled-components";
+import { StateProvider } from "./StateProvider";
+import reducer, { initialState } from "./redux/reducer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <StateProvider reducer={reducer} initialState={initialState}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>{" "}
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

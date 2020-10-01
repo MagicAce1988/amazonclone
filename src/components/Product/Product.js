@@ -1,4 +1,6 @@
 import React from "react";
+import { ADD_TO_BASKET } from "../../redux/actionTypes";
+import { useStateValue } from "../../StateProvider";
 import {
   AddToCart,
   Container,
@@ -8,7 +10,14 @@ import {
   Rating,
 } from "./Product.styled";
 
-const Product = ({ title, image, price, rating, ...props }) => {
+const Product = ({ id, title, image, price, rating, ...props }) => {
+  const [, dispatch] = useStateValue();
+  const addToBasket = () => {
+    dispatch({
+      type: ADD_TO_BASKET,
+      payload: { title, image, price, rating, id },
+    });
+  };
   return (
     <Container {...props}>
       <Info>
@@ -22,7 +31,7 @@ const Product = ({ title, image, price, rating, ...props }) => {
         </Price>
       </Info>
       <ProductImage src={image} alt={title} />
-      <AddToCart>Add to Basket</AddToCart>
+      <AddToCart onClick={addToBasket}>Add to Basket</AddToCart>
     </Container>
   );
 };

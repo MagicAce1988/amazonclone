@@ -1,6 +1,6 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
-import { Container, SubtotalGift } from "./Subtotal.styled";
+import { CheckoutButton, Container, SubtotalGift } from "./Subtotal.styled";
 
 const Subtotal = ({ ...props }) => {
   return (
@@ -21,8 +21,9 @@ const Subtotal = ({ ...props }) => {
         value={0}
         displayType="text"
         thousandSeparator={true}
-        prefix="£"
+        prefix="$"
       />
+      <CheckoutButton>Proceed to Checkout</CheckoutButton>
     </Container>
   );
 };

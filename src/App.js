@@ -1,13 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Header } from "./components";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Link,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home, Checkout } from "./pages";
 
 function App() {

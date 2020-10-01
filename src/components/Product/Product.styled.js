@@ -21,7 +21,7 @@ export const Info = styled.div`
   margin-bottom: 15px;
 `;
 
-export const Price = styled.p`
+export const Price = styled.div`
   margin-top: 5px;
 `;
 
