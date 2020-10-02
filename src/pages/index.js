@@ -1,4 +1,5 @@
 import { default as Home } from "./Home";
 import { default as Checkout } from "./Checkout";
+import { default as Login } from "./Login";
 
-export { Home, Checkout };
+export { Login, Home, Checkout };

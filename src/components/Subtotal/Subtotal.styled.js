@@ -32,4 +32,5 @@ export const CheckoutButton = styled.button`
   color: ${(props) => colors(props).button.color};
   border-color: #a88734 #9c7e31 #846a29;
   cursor: pointer;
+  outline: none;
 `;

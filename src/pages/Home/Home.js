@@ -10,14 +10,14 @@ const Home = ({ ...props }) => {
         <Row>
           <Product
             title="YOSUDA Indoor Cycling Bike Stationary"
-            price="288.99"
+            price={288.99}
             image="https://images-na.ssl-images-amazon.com/images/I/61Ky1vUThdL._AC_UX679_.jpg"
             rating={5}
             id={1}
           />
           <Product
             title="Beats Solo Pro Wireless Noise Cancelling On-Ear Headphones "
-            price="18.99"
+            price={18.99}
             image="https://images-na.ssl-images-amazon.com/images/I/51fWchh4m3L._AC_SL1000_.jpg"
             rating={3}
             id={2}
@@ -26,21 +26,21 @@ const Home = ({ ...props }) => {
         <Row>
           <Product
             title="Yidarton Women's Comfy Casual Twist Knot"
-            price="15.55"
+            price={15.55}
             image="https://images-na.ssl-images-amazon.com/images/I/61pgA8ZK1yL._AC_UY879_.jpg"
             rating={5}
             id={3}
           />
           <Product
             title="MINGER Led Strip Lights Kit"
-            price="22.09"
+            price={22.09}
             image="https://images-na.ssl-images-amazon.com/images/I/71rNE8ES7SL._AC_SL1000_.jpg"
             rating={3}
             id={4}
           />
           <Product
             title="IUGA High Waist Yoga Pants with Pockets"
-            price="21.95"
+            price={21.95}
             image="https://images-na.ssl-images-amazon.com/images/I/71xVE%2BVijKL._AC_UY879_.jpg"
             rating={5}
             id={5}
@@ -49,7 +49,7 @@ const Home = ({ ...props }) => {
         <Row>
           <Product
             title="YUDODO Pet Dog Sling Carrier Breathable Mesh"
-            price="27.18"
+            price={27.18}
             image="https://images-na.ssl-images-amazon.com/images/I/61d8hy7saPL._AC_SL1001_.jpg"
             rating={5}
             id={6}

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Subtotal } from "../../components";
+import CheckoutProduct from "../../components/CheckoutProduct/CheckoutProduct";
+import { useStateValue } from "../../StateProvider";
 import {
   CheckoutLeft,
   Container,
@@ -10,6 +12,7 @@ import {
 } from "./Checkout.styled";
 
 const Checkout = ({ ...props }) => {
+  const [{ basket }] = useStateValue();
   return (
     <Container {...props}>
       <CheckoutLeft>
@@ -21,6 +24,9 @@ const Checkout = ({ ...props }) => {
         </Link>
         <div>
           <CheckoutTitle>Your Shopping Basket</CheckoutTitle>
+          {basket.map((basketItem, index) => (
+            <CheckoutProduct key={basketItem.id + index} {...basketItem} />
+          ))}
         </div>
       </CheckoutLeft>
       <CheckoutRight>
