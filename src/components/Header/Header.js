@@ -29,10 +29,12 @@ const Header = ({ ...props }) => {
         <Search />
       </HeaderSearch>
       <HeaderNav>
-        <HeaderOption>
-          <OptionLineOne>Hello Guest</OptionLineOne>
-          <OptionLineTwo>Sign In</OptionLineTwo>
-        </HeaderOption>
+        <Link to="/login">
+          <HeaderOption>
+            <OptionLineOne>Hello Guest</OptionLineOne>
+            <OptionLineTwo>Sign In</OptionLineTwo>
+          </HeaderOption>
+        </Link>
         <HeaderOption>
           <OptionLineOne>Returns</OptionLineOne>
           <OptionLineTwo>& Orders</OptionLineTwo>
