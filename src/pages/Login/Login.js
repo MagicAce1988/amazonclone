@@ -15,7 +15,9 @@ const Login = ({ ...props }) => {
           <input type="text" />
           <h5>Password</h5>
           <input type="password" />
+          <button>Sign In</button>
         </form>
+        <p>By signing-in you agree to Amazon's Clone Conditions of Use</p>
       </Main>
     </Container>
   );
