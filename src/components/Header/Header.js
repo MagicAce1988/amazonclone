@@ -15,9 +15,13 @@ import {
 } from "./Header.styled";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../StateProvider";
+import { auth } from "../../firebase";
 
 const Header = ({ ...props }) => {
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }] = useStateValue();
+  const handleAuthentication = () => {
+    user && auth.signOut();
+  };
   return (
     <Container {...props}>
       <HeaderLogo
@@ -29,10 +33,12 @@ const Header = ({ ...props }) => {
         <Search />
       </HeaderSearch>
       <HeaderNav>
-        <Link to="/login">
-          <HeaderOption>
-            <OptionLineOne>Hello Guest</OptionLineOne>
-            <OptionLineTwo>Sign In</OptionLineTwo>
+        <Link to={!user && "/login"}>
+          <HeaderOption onClick={handleAuthentication}>
+            <OptionLineOne>{`Hello ${
+              user ? user.email : "Guest"
+            }`}</OptionLineOne>
+            <OptionLineTwo>{user ? "Sign Out" : "Sign In"}</OptionLineTwo>
           </HeaderOption>
         </Link>
         <HeaderOption>

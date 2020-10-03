@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Logo, Main, Register, SignIn } from "./Login.styled";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "../../firebase";
 
 const Login = ({ ...props }) => {
+  const history = useHistory();
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const signIn = (e) => {
+    e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => auth && history.push("/"))
+      .catch((err) => alert(err.message));
+  };
+
+  const register = (e) => {
+    e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => auth && history.push("/"))
+      .catch((err) => alert(err.message));
+  };
+
   return (
     <Container {...props}>
       <Link to="/">
@@ -12,17 +33,29 @@ const Login = ({ ...props }) => {
         <h1>Sign-In</h1>
         <form>
           <h5>Email</h5>
-          <input type="text" />
+          <input
+            type="text"
+            value={email}
+            autocomplete="new-password"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <h5>Password</h5>
-          <input type="password" />
-          <SignIn>Sign In</SignIn>
+          <input
+            type="password"
+            value={password}
+            autocomplete="new-password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <SignIn type="submit" onClick={signIn}>
+            Sign In
+          </SignIn>
         </form>
         <p>
           By signing-in you agree to Amazon's Clone Conditions of Use & Sale.
           Please see our Privacy Notice, our Cookies Notice, and our
           Interest-Based Ads Notice.
         </p>
-        <Register>Create your Amazon account</Register>
+        <Register onClick={register}>Create your Amazon account</Register>
       </Main>
     </Container>
   );
