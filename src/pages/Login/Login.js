@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Logo, Main, Register, SignIn } from "./Login.styled";
 import { Link } from "react-router-dom";
 
 const Login = ({ ...props }) => {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
   return (
     <Container {...props}>
       <Link to="/">
@@ -12,9 +15,19 @@ const Login = ({ ...props }) => {
         <h1>Sign-In</h1>
         <form>
           <h5>Email</h5>
-          <input type="text" />
+          <input
+            type="text"
+            value={email}
+            autocomplete="new-password"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <h5>Password</h5>
-          <input type="password" />
+          <input
+            type="password"
+            value={password}
+            autocomplete="new-password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <SignIn>Sign In</SignIn>
         </form>
         <p>
