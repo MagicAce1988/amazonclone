@@ -1,10 +1,26 @@
 import React, { useState } from "react";
 import { Container, Logo, Main, Register, SignIn } from "./Login.styled";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "../../firebase";
 
 const Login = ({ ...props }) => {
+  const history = useHistory();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+
+  const signIn = (e) => {
+    e.preventDefault();
+    //some fancy firebase login stuff
+  };
+
+  const register = (e) => {
+    e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => auth && history.push("/"))
+      .catch((err) => alert(err.message));
+    //some fancy firebase register stuff
+  };
 
   return (
     <Container {...props}>
@@ -28,14 +44,16 @@ const Login = ({ ...props }) => {
             autocomplete="new-password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <SignIn>Sign In</SignIn>
+          <SignIn type="submit" onClick={signIn}>
+            Sign In
+          </SignIn>
         </form>
         <p>
           By signing-in you agree to Amazon's Clone Conditions of Use & Sale.
           Please see our Privacy Notice, our Cookies Notice, and our
           Interest-Based Ads Notice.
         </p>
-        <Register>Create your Amazon account</Register>
+        <Register onClick={register}>Create your Amazon account</Register>
       </Main>
     </Container>
   );
