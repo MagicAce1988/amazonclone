@@ -10,7 +10,10 @@ const Login = ({ ...props }) => {
 
   const signIn = (e) => {
     e.preventDefault();
-    //some fancy firebase login stuff
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => auth && history.push("/"))
+      .catch((err) => alert(err.message));
   };
 
   const register = (e) => {
@@ -19,7 +22,6 @@ const Login = ({ ...props }) => {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => auth && history.push("/"))
       .catch((err) => alert(err.message));
-    //some fancy firebase register stuff
   };
 
   return (

@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from "./actionTypes";
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET, SET_USER } from "./actionTypes";
 
 export const getBasketTotal = (basket) =>
   basket?.reduce((acc, val) => acc + val.price, 0);
@@ -19,6 +19,11 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         basket,
+      };
+    case SET_USER:
+      return {
+        ...state,
+        user: payload,
       };
     default:
       return state;
