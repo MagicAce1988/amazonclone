@@ -12,6 +12,17 @@ const palette = {
 
 export default {
   colors: {
+    login: {
+      main: {
+        border: palette.primaries.blackest(0.2),
+      },
+      input: {
+        bg: palette.primaries.whitest(),
+      },
+      register: {
+        border: palette.primaries.blackest(0.2),
+      },
+    },
     header: {
       background: palette.primaries.blackest(),
       searchIcon: palette.primaries.main(),

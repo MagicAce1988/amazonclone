@@ -40,6 +40,7 @@ export const HeaderNav = styled.div`
 `;
 
 export const HeaderOption = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   margin-left: 10px;
