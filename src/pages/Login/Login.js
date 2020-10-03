@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Logo, Main } from "./Login.styled";
+import { Container, Logo, Main, Register, SignIn } from "./Login.styled";
 import { Link } from "react-router-dom";
 
 const Login = ({ ...props }) => {
@@ -15,9 +15,14 @@ const Login = ({ ...props }) => {
           <input type="text" />
           <h5>Password</h5>
           <input type="password" />
-          <button>Sign In</button>
+          <SignIn>Sign In</SignIn>
         </form>
-        <p>By signing-in you agree to Amazon's Clone Conditions of Use</p>
+        <p>
+          By signing-in you agree to Amazon's Clone Conditions of Use & Sale.
+          Please see our Privacy Notice, our Cookies Notice, and our
+          Interest-Based Ads Notice.
+        </p>
+        <Register>Create your Amazon account</Register>
       </Main>
     </Container>
   );
