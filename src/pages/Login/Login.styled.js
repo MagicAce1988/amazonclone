@@ -19,6 +19,7 @@ export const Logo = styled.img`
   width: 100px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: -50px;
 `;
 
 export const Main = styled.div`
