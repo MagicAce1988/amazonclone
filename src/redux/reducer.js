@@ -13,9 +13,11 @@ const reducer = (state, { type, payload }) => {
         basket: [...state.basket, payload],
       };
     case REMOVE_FROM_BASKET:
-      const index = state.basket.findIndex(({ id }) => id === payload.id);
       const basket = [...state.basket];
-      basket.splice(index, 1);
+      basket.splice(
+        basket.findIndex((item) => item.orderId === payload.orderId),
+        1
+      );
       return {
         ...state,
         basket,

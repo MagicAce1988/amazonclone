@@ -4,7 +4,6 @@ const colors = (props) => props.theme.colors.payment;
 
 export const Container = styled.div`
   display: flex;
-  width: 100%;
   background: ${(props) => colors(props).bg};
 `;
 

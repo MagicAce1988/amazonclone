@@ -1,6 +1,7 @@
 import React from "react";
 import { ADD_TO_BASKET } from "../../redux/actionTypes";
 import { useStateValue } from "../../StateProvider";
+import { v4 as uuidv4 } from "uuid";
 import {
   AddToCart,
   Container,
@@ -15,7 +16,7 @@ const Product = ({ id, title, image, price, rating, ...props }) => {
   const addToBasket = () => {
     dispatch({
       type: ADD_TO_BASKET,
-      payload: { title, image, price, rating, id },
+      payload: { title, image, price, rating, id, orderId: uuidv4() },
     });
   };
   return (
