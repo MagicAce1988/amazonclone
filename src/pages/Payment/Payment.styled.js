@@ -39,6 +39,6 @@ export const Address = styled.div`
   flex: 0.8;
 `;
 
-export const Items = styled.div``;
+export const Items = styled(Address)``;
 
-export const Details = styled.div``;
+export const Details = styled(Address)``;
