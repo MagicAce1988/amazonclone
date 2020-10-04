@@ -13,11 +13,12 @@ import {
   OptionLineTwo,
   Search,
 } from "./Header.styled";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStateValue } from "../../StateProvider";
 import { auth } from "../../firebase";
 
 const Header = ({ ...props }) => {
+  const history = useHistory();
   const [{ basket, user }] = useStateValue();
   const handleAuthentication = () => {
     user && auth.signOut();
@@ -25,6 +26,7 @@ const Header = ({ ...props }) => {
   return (
     <Container {...props}>
       <HeaderLogo
+        onClick={() => history.push("/")}
         src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
         alt="amazon logo"
       />

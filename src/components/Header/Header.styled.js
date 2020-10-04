@@ -18,6 +18,7 @@ export const HeaderLogo = styled.img`
   object-fit: contain;
   margin: 0 20px;
   margin-top: 18px;
+  cursor: pointer;
 `;
 
 export const HeaderSearch = styled.div`
