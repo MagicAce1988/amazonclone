@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { Header } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Home, Checkout, Login } from "./pages";
+import { Home, Checkout, Login, Payment } from "./pages";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { SET_USER } from "./redux/actionTypes";
@@ -28,6 +28,10 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
           <Route path="/">
             <Header />

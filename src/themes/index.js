@@ -3,6 +3,7 @@ const palette = {
     blackest: (alpha = 1) => `rgba(19, 25, 33, ${alpha})`, //#131921
     whitest: (alpha = 1) => `rgba(255, 255, 255, ${alpha})`, //#ffffff
     main: (alpha = 1) => `rgba(205, 144, 66, ${alpha})`, //#cd9042
+    grayest: (alpha = 1) => `rgba(234, 237, 237, ${alpha})`,
   },
   secondaries: {
     mostOrange: (alpha = 1) => `rgba(240, 193, 75, ${alpha})`, //#f0c14b
@@ -38,6 +39,11 @@ export default {
     checkout: {
       bg: palette.primaries.whitest(),
       titleLine: palette.primaries.blackest(0.1),
+    },
+    payment: {
+      bg: palette.primaries.whitest(),
+      secondaryBg: palette.primaries.grayest(),
+      border: palette.primaries.blackest(0.1),
     },
     subtotal: {
       bg: palette.secondaries.grayish(),
