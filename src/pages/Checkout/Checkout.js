@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Subtotal } from "../../components";
 import CheckoutProduct from "../../components/CheckoutProduct/CheckoutProduct";
@@ -12,13 +12,8 @@ import {
 } from "./Checkout.styled";
 
 const Checkout = ({ ...props }) => {
-  const [localBasket, setLocalBasket] = useState([]);
+  const [{ basket }] = useStateValue();
 
-  const [state] = useStateValue();
-
-  useEffect(() => {
-    setLocalBasket(state.basket);
-  }, [state]);
   return (
     <Container {...props}>
       <CheckoutLeft>
@@ -30,7 +25,7 @@ const Checkout = ({ ...props }) => {
         </Link>
         <div>
           <CheckoutTitle>Your Shopping Basket</CheckoutTitle>
-          {localBasket?.map((basketItem) => (
+          {basket?.map((basketItem) => (
             <CheckoutProduct key={basketItem.orderId} {...basketItem} />
           ))}
         </div>
