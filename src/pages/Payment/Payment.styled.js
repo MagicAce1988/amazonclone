@@ -41,3 +41,5 @@ export const Address = styled.div`
 export const Items = styled(Address)``;
 
 export const Details = styled(Address)``;
+
+export const PaymentPrice = styled.div``;
