@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   Address,
+  Button,
   Container,
   Details,
   Info,
@@ -17,6 +18,7 @@ import { getBasketTotal } from "../../redux/reducer";
 import CurrencyFormat from "react-currency-format";
 import axios from "../../utils/axios";
 import { EMPTY_BASKET } from "../../redux/actionTypes";
+import { db } from "../../firebase";
 
 const Payment = ({ ...props }) => {
   const [clientSecret, setClientSecret] = useState("");
@@ -40,6 +42,15 @@ const Payment = ({ ...props }) => {
         },
       })
       .then(({ paymentIntent }) => {
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
         setSucceeded(true);
         setError(null);
         setProcessing(false);
@@ -105,16 +116,23 @@ const Payment = ({ ...props }) => {
               <CardElement onChange={handleChange} />
               <PaymentPrice>
                 <CurrencyFormat
-                  renderText={(value) => <h3>Order Total: {value}</h3>}
+                  renderText={(value) => <h4>Order Total: {value}</h4>}
                   decimalScale={2}
                   value={getBasketTotal(basket)}
                   displayType="text"
                   thousandSeparator={true}
                   prefix="$"
                 />
-                <button disabled={processing || disabled || succeeded}>
+                <Button
+                  disabled={
+                    processing ||
+                    disabled ||
+                    succeeded ||
+                    !getBasketTotal(basket)
+                  }
+                >
                   <span>{processing ? <p>Processing...</p> : "Buy Now"}</span>
-                </button>
+                </Button>
               </PaymentPrice>
               {error && <div>{error}</div>}
             </form>
