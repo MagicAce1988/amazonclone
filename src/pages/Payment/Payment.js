@@ -125,6 +125,7 @@ const Payment = ({ ...props }) => {
                 />
                 <Button
                   disabled={
+                    !user ||
                     processing ||
                     disabled ||
                     succeeded ||
