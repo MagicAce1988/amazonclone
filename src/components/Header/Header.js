@@ -43,10 +43,12 @@ const Header = ({ ...props }) => {
             <OptionLineTwo>{user ? "Sign Out" : "Sign In"}</OptionLineTwo>
           </HeaderOption>
         </Link>
-        <HeaderOption>
-          <OptionLineOne>Returns</OptionLineOne>
-          <OptionLineTwo>& Orders</OptionLineTwo>
-        </HeaderOption>
+        <Link to={user && "/orders"}>
+          <HeaderOption>
+            <OptionLineOne>Returns</OptionLineOne>
+            <OptionLineTwo>& Orders</OptionLineTwo>
+          </HeaderOption>
+        </Link>
         <HeaderOption>
           <OptionLineOne>Your</OptionLineOne>
           <OptionLineTwo>Prime</OptionLineTwo>

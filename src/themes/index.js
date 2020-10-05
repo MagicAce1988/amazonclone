@@ -36,6 +36,10 @@ export default {
         text: palette.primaries.blackest(),
       },
     },
+    orderSummary: {
+      bg: palette.primaries.whitest(),
+      border: palette.primaries.blackest(0.2),
+    },
     checkout: {
       bg: palette.primaries.whitest(),
       titleLine: palette.primaries.blackest(0.1),
@@ -50,6 +54,7 @@ export default {
       border: palette.secondaries.grayish(0.5),
       button: {
         bg: palette.secondaries.mostOrange(),
+        bgDisabled: palette.secondaries.grayish(),
         color: palette.primaries.blackest(),
       },
     },

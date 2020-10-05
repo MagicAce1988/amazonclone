@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CheckoutButton } from "../../components/Subtotal/Subtotal.styled";
 
 const colors = (props) => props.theme.colors.payment;
 
@@ -40,6 +41,18 @@ export const Address = styled.div`
 
 export const Items = styled(Address)``;
 
-export const Details = styled(Address)``;
+export const Details = styled(Address)`
+  form {
+    max-width: 400px;
+
+    h4 {
+      padding: 10px 0;
+    }
+  }
+`;
+
+export const Button = styled(CheckoutButton)`
+  font-weight: bolder;
+`;
 
 export const PaymentPrice = styled.div``;

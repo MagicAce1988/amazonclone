@@ -23,7 +23,8 @@ export const SubtotalGift = styled.small`
 `;
 
 export const CheckoutButton = styled.button`
-  background-color: ${(props) => colors(props).button.bg};
+  background-color: ${(props) =>
+    colors(props).button[props.disabled ? "bgDisabled" : "bg"]};
   border-radius: 2px;
   width: 100%;
   height: 30px;
@@ -31,6 +32,6 @@ export const CheckoutButton = styled.button`
   margin-top: 10px;
   color: ${(props) => colors(props).button.color};
   border-color: #a88734 #9c7e31 #846a29;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")}
   outline: none;
 `;
