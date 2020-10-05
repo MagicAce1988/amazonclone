@@ -16,15 +16,16 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { getBasketTotal } from "../../redux/reducer";
 import CurrencyFormat from "react-currency-format";
 import axios from "../../utils/axios";
+import { EMPTY_BASKET } from "../../redux/actionTypes";
 
 const Payment = ({ ...props }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(true);
   const [error, setError] = useState(null);
   const history = useHistory();
-  const [{ basket, user }] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
   const stripe = useStripe();
   const elements = useElements();
 
@@ -42,6 +43,7 @@ const Payment = ({ ...props }) => {
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+        dispatch({ type: EMPTY_BASKET });
         history.replace("/orders");
       });
   };
@@ -53,14 +55,20 @@ const Payment = ({ ...props }) => {
 
   useEffect(() => {
     const getClientSecret = async () => {
-      const response = await axios({
-        method: "post",
-        url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
-      });
+      const response =
+        basket &&
+        (await axios({
+          method: "post",
+          url: `/payments/create?total=${parseInt(
+            getBasketTotal(basket) * 100
+          )}`,
+        }));
       setClientSecret(response.data.clientSecret);
     };
     getClientSecret();
   }, [basket]);
+
+  console.log(clientSecret);
 
   return (
     <Container {...props}>

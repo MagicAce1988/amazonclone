@@ -1,5 +1,7 @@
-import axios from "axios";
+import axiosInstance from "axios";
 
-const instance = axios.create({ baseUrl: "..." });
+const axios = axiosInstance.create({
+  baseURL: "http://localhost:5001/clone-4348a/us-central1/api",
+});
 
-export default instance;
+export default axios;

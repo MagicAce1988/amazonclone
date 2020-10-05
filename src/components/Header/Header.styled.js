@@ -29,7 +29,7 @@ export const HeaderSearch = styled.div`
 `;
 
 export const Input = styled.input`
-  height: 12px;
+  height: 20px;
   padding: 10px;
   border: none;
   width: 100%;
