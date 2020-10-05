@@ -13,6 +13,7 @@ import {
 
 const Checkout = ({ ...props }) => {
   const [{ basket }] = useStateValue();
+
   return (
     <Container {...props}>
       <CheckoutLeft>
@@ -24,8 +25,8 @@ const Checkout = ({ ...props }) => {
         </Link>
         <div>
           <CheckoutTitle>Your Shopping Basket</CheckoutTitle>
-          {basket.map((basketItem, index) => (
-            <CheckoutProduct key={basketItem.id + index} {...basketItem} />
+          {basket?.map((basketItem) => (
+            <CheckoutProduct key={basketItem.orderId} {...basketItem} />
           ))}
         </div>
       </CheckoutLeft>

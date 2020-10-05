@@ -11,10 +11,19 @@ import {
   Remove,
 } from "./CheckoutProduct.styled";
 
-const CheckoutProduct = ({ id, image, title, price, rating, ...props }) => {
+const CheckoutProduct = ({
+  index,
+  id,
+  image,
+  title,
+  price,
+  rating,
+  orderId,
+  ...props
+}) => {
   const [, dispatch] = useStateValue();
   const removeFromBasket = () => {
-    dispatch({ type: REMOVE_FROM_BASKET, payload: { id } });
+    dispatch({ type: REMOVE_FROM_BASKET, payload: { orderId } });
   };
   return (
     <Container {...props}>
