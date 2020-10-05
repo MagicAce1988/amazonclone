@@ -11,7 +11,7 @@ import {
 } from "./Payment.styled";
 import { useStateValue } from "../../StateProvider";
 import { CheckoutProduct } from "../../components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { getBasketTotal } from "../../redux/reducer";
 import CurrencyFormat from "react-currency-format";
@@ -23,6 +23,7 @@ const Payment = ({ ...props }) => {
   const [succeeded, setSucceeded] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState(null);
+  const history = useHistory();
   const [{ basket, user }] = useStateValue();
   const stripe = useStripe();
   const elements = useElements();
