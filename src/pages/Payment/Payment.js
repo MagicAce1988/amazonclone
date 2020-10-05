@@ -19,6 +19,7 @@ import CurrencyFormat from "react-currency-format";
 import axios from "../../utils/axios";
 import { EMPTY_BASKET } from "../../redux/actionTypes";
 import { db } from "../../firebase";
+import FlipMove from "react-flip-move";
 
 const Payment = ({ ...props }) => {
   const [clientSecret, setClientSecret] = useState("");
@@ -79,8 +80,6 @@ const Payment = ({ ...props }) => {
     getClientSecret();
   }, [basket]);
 
-  console.log(clientSecret);
-
   return (
     <Container {...props}>
       <Info>
@@ -102,9 +101,11 @@ const Payment = ({ ...props }) => {
             <h3>Review items and delivery</h3>
           </Title>
           <Items>
-            {basket.map((item) => (
-              <CheckoutProduct key={item.orderId} {...item} />
-            ))}
+            <FlipMove>
+              {basket.map((item) => (
+                <CheckoutProduct key={item.orderId} {...item} />
+              ))}
+            </FlipMove>
           </Items>
         </Section>
         <Section>

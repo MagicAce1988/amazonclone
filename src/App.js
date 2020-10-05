@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { Header } from "./components";
+import { Header, ScrollToTop } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home, Checkout, Login, Payment, Orders } from "./pages";
 import { auth } from "./firebase";
@@ -27,29 +27,31 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/checkout">
-            <Header />
-            <Checkout />
-          </Route>
-          <Route path="/orders">
-            <Header />
-            <Orders />
-          </Route>
-          <Route path="/payment">
-            <Header />
-            <Elements stripe={promise}>
-              <Payment />
-            </Elements>
-          </Route>
-          <Route path="/">
-            <Header />
-            <Home />
-          </Route>
-        </Switch>
+        <ScrollToTop>
+          <Switch>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/checkout">
+              <Header />
+              <Checkout />
+            </Route>
+            <Route path="/orders">
+              <Header />
+              <Orders />
+            </Route>
+            <Route path="/payment">
+              <Header />
+              <Elements stripe={promise}>
+                <Payment />
+              </Elements>
+            </Route>
+            <Route path="/">
+              <Header />
+              <Home />
+            </Route>
+          </Switch>
+        </ScrollToTop>
       </div>
     </Router>
   );

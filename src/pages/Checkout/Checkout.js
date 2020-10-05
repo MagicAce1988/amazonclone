@@ -10,6 +10,7 @@ import {
   CheckoutTitle,
   CheckoutRight,
 } from "./Checkout.styled";
+import FlipMove from "react-flip-move";
 
 const Checkout = ({ ...props }) => {
   const [{ basket }] = useStateValue();
@@ -25,9 +26,11 @@ const Checkout = ({ ...props }) => {
         </Link>
         <div>
           <CheckoutTitle>Your Shopping Basket</CheckoutTitle>
-          {basket?.map((basketItem) => (
-            <CheckoutProduct key={basketItem.orderId} {...basketItem} />
-          ))}
+          <FlipMove>
+            {basket?.map((basketItem) => (
+              <CheckoutProduct key={basketItem.orderId} {...basketItem} />
+            ))}
+          </FlipMove>
         </div>
       </CheckoutLeft>
       <CheckoutRight>
